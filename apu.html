@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio - Apurv</title>
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-color: #f4f8fb;
+      --text-color: #333;
+      --header-bg: #1e2a38;
+      --accent-color: #4a90e2;
+      --card-bg: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --text-color: #f4f4f4;
+      --header-bg: #0d1117;
+      --accent-color: #58a6ff;
+      --card-bg: #2a2a2a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 1rem auto;
+      transition: transform 0.3s;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .skill {
+      margin: 10px 0;
+    }
+
+    .bar {
+      height: 20px;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: var(--accent-color);
+      animation: fillGrow 2s ease-in-out;
+    }
+
+    @keyframes fillGrow {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    button {
+      padding: 10px 15px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #3a6fcf;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+    }
+
+    form button {
+      margin-top: 15px;
+    }
+
+    footer {
+      background: var(--header-bg);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    #projectList {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+
+    #projectList.visible {
+      max-height: 500px;
+    }
+
+    #darkToggle {
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      section {
+        padding: 1rem;
+      }
+
+      table, th, td {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Apurv Satish Dahake</h1>
+    <nav>
+      <a href="#about"><i class="fas fa-user"></i> About</a>
+      <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+      <a href="#projects"><i class="fas fa-rocket"></i> Projects</a>
+      <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="https://www.linkedin.com/in/apurv-dahake-737159330" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </nav>
+    <button id="darkToggle">Toggle Dark Mode</button>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <div class="card">
+      <img src="apurv.jpg" alt="Apurv Dahake photo" />
+      <h2>About Me</h2>
+      <p>I'm a passionate and detail-oriented web developer with a strong foundation in HTML, CSS, and JavaScript. I enjoy crafting responsive, user-friendly websites and continuously learning new technologies to improve my skills. Whether working on a personal project or collaborating with a team, I strive to create clean, efficient code and deliver meaningful digital experiences.</p>
+    </div>
+  </section>
+
+  <section id="education" data-aos="fade-up">
+    <div class="card">
+      <h2>Education</h2>
+      <table>
+        <tr>
+          <th>College</th>
+          <th>University</th>
+          <th>Branch</th>
+        </tr>
+        <tr>
+          <td>P R Pote College of Engineering</td>
+          <td>Sant Gadge Baba Amravati University</td>
+          <td>Artificial intelligence and machine learning</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <div class="card">
+      <h2>Skills</h2>
+      <table>
+        <tr><th>Skill</th><th>Proficiency</th></tr>
+        <tr><td>HTML</td><td>90%</td></tr>
+        <tr><td>CSS</td><td>85%</td></tr>
+        <tr><td>JavaScript</td><td>75%</td></tr>
+        <tr><td>C Programming</td><td>90%</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <div class="card">
+      <h2>Projects</h2>
+      <button onclick="toggleProjects()">Show/Hide Projects</button>
+      <ul id="projectList">
+        <li>Portfolio Website</li>
+        <li>Weather App</li>
+        <li>Task Tracker</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="certifications" data-aos="fade-up">
+    <div class="card">
+      <h2>Certifications</h2>
+      <table>
+        <tr><th>Course</th><th>Platform</th></tr>
+        <tr><td>HTML, CSS, and JavaScript</td><td>Coursera</td></tr>
+        <tr><td>Front-End Development with React</td><td>Coursera</td></tr>
+        <tr><td>JavaScript Bootcamp</td><td>Udemy</td></tr>
+        <tr><td>UX Design Certificate</td><td>Google</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <div class="card">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>Connect with me:</p>
+    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
+    <a href="https://www.linkedin.com/in/apurv-dahake-737159330" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleProjects() {
+      const list = document.getElementById("projectList");
+      list.classList.toggle("visible");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("projectList").classList.remove("visible");
+
+      const toggleBtn = document.getElementById("darkToggle");
+      toggleBtn.addEventListener("click", () => {
+        document.documentElement.toggleAttribute('data-theme');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Info Corner</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0fff0; /* light green background */
+      color: #2e4e2e; /* dark green text */
+    }
+
+    header {
+      background-color: #2e8b57; /* sea green */
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #3cb371; /* medium sea green */
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav button:hover {
+      background-color: #66cdaa; /* lighter green on hover */
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .content-section {
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #d0f0c0; /* pale green */
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .profile-container img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #3cb371;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    ul li strong {
+      color: #2e8b57;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Creative Hub</h1>
+    <nav>
+      <button onclick="showSection('about')">About</button>
+      <button onclick="showSection('image-editors')">Image Editors</button>
+      <button onclick="showSection('video-editors')">Video Editors</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="content-section">
+      <h2>About Me</h2>
+      <div class="profile-container">
+        <img src="n.jpeg" alt="Profile Photo">
+        <p>Hello! I'm a passionate digital creator. I love editing images and videos using various tools to bring ideas to life.</p>
+      </div>
+    </section>
+
+    <section id="image-editors" class="content-section hidden">
+      <h2>My Favorite Image Editors</h2>
+      <ul>
+        <li><strong>Adobe Photoshop</strong> - Industry standard for image editing.</li>
+        <li><strong>GIMP</strong> - Free and open-source alternative.</li>
+        <li><strong>Canva</strong> - Great for quick designs and social media graphics.</li>
+      </ul>
+    </section>
+
+    <section id="video-editors" class="content-section hidden">
+      <h2>My Favorite Video Editors</h2>
+      <ul>
+        <li><strong>Adobe Premiere Pro</strong> - Professional-level video editing.</li>
+        <li><strong>DaVinci Resolve</strong> - Excellent color correction and features.</li>
+        <li><strong>CapCut</strong> - Fast mobile and desktop editing tool.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Creative Corner</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
+
